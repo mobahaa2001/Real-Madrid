@@ -1,0 +1,28 @@
+{
+  "name": "realmadrid",
+  "version": "1.0.0",
+  "description": "Landing page for realmadrid",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass sass/main.scss Styles/style.css -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "compile:sass": "node-sass sass/main.scss Styles/style.comp.css",
+    "concat:css": "concat -o Styles/style.concat.css Styles/icons-font.css.css Styles/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last versions' Styles/style.concat.css -o Styles/style.prefix.css",
+    "compress:css": "node-sass Styles/style.prefix.css Styles/style.css--output-style compressed",
+    "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css"
+  },
+  "author": "moBahaaDev",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "concat": "^1.0.3",
+    "node-sass": "^7.0.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^9.1.0"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
+}

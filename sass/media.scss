@@ -1,0 +1,31 @@
+/*
+Phone = [0:600]px
+Tablet portrait = [600:900]px
+Tablet Landscape = [900:1200]px
+Big Desktop = [1800:&&]px
+1em =16px
+1rem = 10px
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint ==phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint ==tablet-landscape {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint ==desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
